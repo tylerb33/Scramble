@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  competition_type_id: one
+  golf_course_id: one
+  organizer_id: one
+  date: 2017-12-05 08:44:04
+  time: 2017-12-05 08:44:04
+  contact_email: MyString
+  entry_fee: 1
+
+two:
+  title: MyString
+  description: MyText
+  competition_type_id: two
+  golf_course_id: two
+  organizer_id: two
+  date: 2017-12-05 08:44:04
+  time: 2017-12-05 08:44:04
+  contact_email: MyString
+  entry_fee: 1

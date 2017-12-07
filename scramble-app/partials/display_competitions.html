@@ -1,0 +1,11 @@
+<h1> {{headline}} </h1>
+
+<div ng-repeat="competition in arrayOfCompetitions">
+	<div class="card">
+	  <div class="card-block">
+	    <h4 class="card-title">{{competition.title}}</h4>
+	    <p class="card-text">{{competition.description}}</p>
+	    <a ng-href="#!/details/{{competition.id}}" class="card-link">Details</a>
+	  </div>
+	</div>
+</div>

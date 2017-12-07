@@ -24,5 +24,9 @@ app.config(($routeProvider) => {
 		templateUrl: 'partials/login_form.html',
 		controller: 'UserController'
 	})
+	.when('/signup', {
+		templateUrl: 'partials/signup_form.html',
+		controller: 'UserController'
+	})
 	.otherwise('/');
 });

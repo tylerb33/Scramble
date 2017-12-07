@@ -14,15 +14,30 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 		password_confirmation: ""
 	};
 
+	$scope.creds = {
+		email: "",
+		password: ""
+	};
+
 
 	$scope.submitUser = function() {
 		const finalAccountObj = {"user": $scope.account};
 		const finalAccountObjString = JSON.stringify(finalAccountObj);
 		userFactory.addUser(finalAccountObjString)
 			.then((data) => {
+				$location.url("/competitions");
 				console.log ("DATA FROM USER SUBMIT", data);
-				// $location.url("/wishlist");
+				
 		});
+	};
+
+	$scope.logIn = function() {
+		console.log ("$scope.creds", $scope.creds);
+		userFactory.authenticate($scope.creds)
+			.then((data) => {
+				$location.url("/competitions");
+				console.log ("DATA BACK TO CONTROLLER", data);
+			});
 	};
 
 });

@@ -12,15 +12,16 @@
 			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Select a Golf Course
 			</button>
+ 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<div ng-repeat="course in golfCourses">
-					<a class="dropdown-item" href="">{{course.title}}</a>
+				<div ng-repeat="course in golfCourses" ng-model="competition_details.golf_course_id">
+					<a class="dropdown-item" value={{course.id}} href="">{{course.title}}</a>
 				</div>
 			</div>
 		</div>
+
+
 		<br>
-
-
         <div class="dropdown">
 			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Competition Type

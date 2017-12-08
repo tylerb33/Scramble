@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   		resources :competitions
   		resources :prizes
   		resources :users
+      resources :competition_types
 
   		post 'authenticate', to: 'authentication#authenticate'
   	end

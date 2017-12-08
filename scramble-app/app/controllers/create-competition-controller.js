@@ -1,14 +1,23 @@
 "use strict";
 
-app.controller('createCompetition', function($scope, competitionFactory) {
-	$scope.headline = "Create a Competition";
-	
-	// $scope.showAllCompetitions = () => {
-	// 	competitionFactory.getAllCompetitions().then(data => {
-	// 		$scope.allCompetitions = data;
-	// 		console.log ("DATA", data);
-	// 	});
-	// };
+app.controller('createCompetitionController', function($scope, competitionFactory, golfCourseFactory, $routeParams) {
 
-	// $scope.showAllCompetitions();
+	const getCompetitionTypes = function() {
+		competitionFactory.getTypes().then(data => {
+			console.log ("data from competition types", data);
+			$scope.competitionTypes = data;
+		});
+	};
+
+	const getGolfCourses = function() {
+		golfCourseFactory.getAllGolfCourses().then(data => {
+			console.log ("data from golf courses", data);
+			$scope.golfCourses = data;
+		});
+	};
+
+	getCompetitionTypes();
+	getGolfCourses();
+
+
 });

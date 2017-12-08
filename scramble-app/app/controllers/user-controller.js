@@ -26,17 +26,17 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 		userFactory.addUser(finalAccountObjString)
 			.then((data) => {
 				$location.url("/competitions");
-				console.log ("DATA FROM USER SUBMIT", data);
+				// console.log ("DATA FROM USER SUBMIT", data);
 				
 		});
 	};
 
 	$scope.logIn = function() {
-		console.log ("$scope.creds", $scope.creds);
+		// console.log ("$scope.creds", $scope.creds);
 		userFactory.authenticate($scope.creds)
 			.then((data) => {
 				$location.url("/competitions");
-				console.log ("DATA BACK TO CONTROLLER", data);
+				// console.log ("DATA BACK TO CONTROLLER", data);
 			});
 	};
 

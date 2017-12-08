@@ -1,10 +1,54 @@
 <h1>{{headline}}</h1>
 
-<!-- Name of competition
-Description
-Competition Type (dropdown)
-Golf Course
-Date of Competition
-Time of Competition
-Entry Fee
-Contact Email -->
+<center>
+    <div class="form-group">
+        <input class="loginInput form-control form-control-lg" placeholder="Name of Event" type="text" autofocus="true" ng-model="competition_details.title">
+
+		<br>
+        <input class="loginInput form-control form-control-lg" placeholder="Description" type="text" autofocus="true" ng-model="competition_details.description">
+
+		<br>
+		<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Select a Golf Course
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<div ng-repeat="course in golfCourses">
+					<a class="dropdown-item" href="">{{course.title}}</a>
+				</div>
+			</div>
+		</div>
+		<br>
+
+
+        <div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Competition Type
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<div ng-repeat="competitionType in competitionTypes">
+					<a class="dropdown-item" href="">{{competitionType.title}}</a>
+				</div>
+			</div>
+		</div>
+
+        <br>
+        <input class="loginInput form-control form-control-lg" placeholder="Date" type="date" autofocus="true" ng-model="competition_details.date">
+
+        <br>
+        <input class="loginInput form-control form-control-lg" placeholder="Time" type="time" autofocus="true" ng-model="competition_details.time">
+
+        <br>
+        <input class="loginInput form-control form-control-lg" placeholder="Entry Fee" type="text" autofocus="true" ng-model="competition_details.entry_fee">
+
+        <br>
+        <input class="loginInput form-control form-control-lg" placeholder="Contact Email" type="text" autofocus="true" ng-model="competition_details.contact_email">
+
+        <br>
+        <div class="buttons">
+        	<button ng-click="submitCompetition()" type="button" class="btn btn-outline-success btn-block">Add Event</button>
+    	</div>
+
+
+    </div>
+</center>

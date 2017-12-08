@@ -5,7 +5,7 @@ module Api
 
 			# GET /payment_types
 			def index
-				@payment_types = PaymentType.all
+				@payment_types = PaymentType.where(user_id: params[:user_id])
 				render json: @payment_types
 			end
 			  # GET /payment_types/1
@@ -15,7 +15,6 @@ module Api
 
 			  # POST /payment_types
 			def create
-				puts params
 				@payment_type = PaymentType.new(payment_type_params)
 
 				if @payment_type.save
@@ -49,7 +48,7 @@ module Api
 					end
 
 					def payment_type_params
-      					params.require(:payment_type).permit(:card_number, :title, :csc, :name_on_card)
+      					params.require(:payment_type).permit(:card_number, :title, :csc, :name_on_card, :user_id)
     				end
 
 		end

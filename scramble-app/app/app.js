@@ -32,5 +32,9 @@ app.config(($routeProvider) => {
 		templateUrl: 'partials/user_details.html',
 		controller: 'UserController'
 	})
+	.when('/new_payment', {
+		templateUrl: 'partials/create_payment_type_form.html',
+		controller: 'paymentTypesController'
+	})
 	.otherwise('/');
 });

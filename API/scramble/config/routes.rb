@@ -2,13 +2,21 @@ Rails.application.routes.draw do
   namespace 'api' do
   	namespace 'v1' do
   		resources :golf_courses
-  		resources :payment_types
   		resources :competitions
   		resources :prizes
-  		resources :users
+
+  		resources :users do
+        resources :payment_types
+        resources :competitions
+
+      end
+
       resources :competition_types
 
   		post 'authenticate', to: 'authentication#authenticate'
-  	end
+      get 'custom/:user_id/competitions', to: 'competitions#users_upcoming_competitions'
+
+    end
   end
+
 end

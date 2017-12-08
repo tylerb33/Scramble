@@ -1,0 +1,23 @@
+<h1> {{headline}} </h1>
+
+<center>
+    <div class="form-group">
+        <input class="loginInput form-control form-control-lg" placeholder="Type of card" type="text" autofocus="true" ng-model="newPaymentType.title">
+
+		<br>
+        <input class="loginInput form-control form-control-lg" placeholder="Name on card" type="text" autofocus="true" ng-model="newPaymentType.name_on_card">        
+
+        <br>
+        <input class="loginInput form-control form-control-lg" placeholder="Card number" type="number" autofocus="true" ng-model="newPaymentType.card_number">
+
+        <br>
+        <input class="loginInput form-control form-control-lg" placeholder="CSC on back of card" type="password" autofocus="true" ng-model="newPaymentType.csc">
+
+        <br>
+        <div class="buttons">
+        	<button ng-click="submitPaymentType()" type="button" class="btn btn-outline-success btn-block">Add Payment Type</button>
+    	</div>
+
+
+    </div>
+</center>

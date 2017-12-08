@@ -44,12 +44,21 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 	$scope.showPaymentByUser = () => {
 		paymentTypeFactory.getPaymentTypesByUser().then(data => {
 			console.log("payment types made it to user controller", data);
+			$scope.paymentTypes = data;
 		});
 	};
 
 	$scope.showUpcomingCompetitionsByUser = () => {
 		competitionFactory.getUpcomingCompetitionsByUser().then(data => {
 			console.log("upcoming competitions made it to user controller", data);
+			$scope.upcomingCompetitions = data;
+		});
+	};
+
+	$scope.deletePaymentType = (paymentTypeId) => {
+		// console.log ("paymentTypeId", paymentTypeId);
+		paymentTypeFactory.removePaymentType(paymentTypeId).then(data => {
+			console.log ("deleted payment type", data);
 		});
 	};
 

@@ -1,1 +1,12 @@
 <h3>View your payment types</h3>
+
+<div ng-repeat="paymentType in paymentTypes">
+	<div class="card">
+	  <div class="card-block">
+	    {{paymentType.title}} | {{paymentType.card_number}} | <a href=""><a ng-click="deletePaymentType(paymentType.id)">Delete</a></a>
+	  </div>
+	</div>
+</div>
+
+
+<h3>Your upcoming competitions</h3>

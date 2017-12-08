@@ -6,7 +6,7 @@ module Api
 
 			def authenticate 
 				command = AuthenticateUser.call(params[:email], params[:password]) 
-				puts command.result[:token]
+	
 				if command.success? 
 					render json: { auth_token: command.result[:token], user_id: command.result[:user_id] } 
 				else 
@@ -14,5 +14,6 @@ module Api
 				end 
 			end 
 		end
+		
 	end
 end

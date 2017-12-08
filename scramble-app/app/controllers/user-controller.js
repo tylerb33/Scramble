@@ -1,5 +1,5 @@
 "use strict";
-app.controller("UserController", function($scope, $window, userFactory, $location) {
+app.controller("UserController", function($scope, $window, userFactory, $location, paymentTypeFactory, competitionFactory) {
 
 	$scope.headline = "Log In";
 
@@ -26,8 +26,7 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 		userFactory.addUser(finalAccountObjString)
 			.then((data) => {
 				$location.url("/competitions");
-				// console.log ("DATA FROM USER SUBMIT", data);
-				
+				// console.log ("DATA FROM USER SUBMIT", data);			
 		});
 	};
 
@@ -40,4 +39,21 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 			});
 	};
 
+	// *** All below are used to populate the user account detail page  *** //
+
+	$scope.showPaymentByUser = () => {
+		paymentTypeFactory.getPaymentTypesByUser().then(data => {
+			console.log("payment types made it to user controller", data);
+		});
+	};
+
+	$scope.showUpcomingCompetitionsByUser = () => {
+		competitionFactory.getUpcomingCompetitionsByUser().then(data => {
+			console.log("upcoming competitions made it to user controller", data);
+		});
+	};
+
+
+	$scope.showPaymentByUser();
+	$scope.showUpcomingCompetitionsByUser();
 });

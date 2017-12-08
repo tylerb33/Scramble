@@ -53,7 +53,6 @@ app.factory('userFactory', function ($q, $http) {
 				loggedIn = true;
 				console.log ("token", currentUserToken, "user_id", currentUserId);
 				resolve(data);
-				// console.log ("FOR USE THROUGHOUT SITE", authTokenGetter());
 			// }, (error) => {
 			// 	let errorCode = error.code;
 			// 	let errorMessage = error.message;

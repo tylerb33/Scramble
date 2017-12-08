@@ -7,6 +7,7 @@ const getAllCompetitions = () => {
 		$http.get(`http://localhost:3000/api/v1/competitions`, {
 			headers: {'Authorization': `${userFactory.authTokenGetter()}`}
 		}).then(results => {
+			console.log ("results", results);
 			resolve(results.data);
 		});
 	});
@@ -35,9 +36,21 @@ const getTypes = () => {
 	});
 };
 
+const getUpcomingCompetitionsByUser = () => {
+	return $q((resolve, reject) => {
+		$http.get(`http://localhost:3000/api/v1/users/${userFactory.currentUserIdGetter()}/competitions`, {
+			headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+		}).then(results => {
+			resolve(results.data);
+		});
+	});
+};
+
+
 return {
-	getAllCompetitions,
+	getUpcomingCompetitionsByUser,
 	getSingleCompetition,
+	getAllCompetitions,
 	getTypes
 };
 

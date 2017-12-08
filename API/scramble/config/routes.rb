@@ -14,8 +14,9 @@ Rails.application.routes.draw do
       resources :competition_types
 
   		post 'authenticate', to: 'authentication#authenticate'
-      # get 'competitions', to: 'competitions#usercompetitions'
+      get 'custom/:user_id/competitions', to: 'competitions#users_upcoming_competitions'
 
-  	end
+    end
   end
+
 end

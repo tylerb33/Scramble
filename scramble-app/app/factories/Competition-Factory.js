@@ -36,9 +36,20 @@ const getTypes = () => {
 	});
 };
 
-const getUpcomingCompetitionsByUser = () => {
+const getPlannedCompetitionsByUser = () => {
 	return $q((resolve, reject) => {
 		$http.get(`http://localhost:3000/api/v1/users/${userFactory.currentUserIdGetter()}/competitions`, {
+			headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+		}).then(results => {
+			resolve(results.data);
+		});
+	});
+};
+
+const getUpcomingCompetitionsByUser = () => {
+	return $q((resolve, reject) => {
+		
+		$http.get(`http://localhost:3000/api/v1/custom/${userFactory.currentUserIdGetter()}/competitions`, {
 			headers: {'Authorization': `${userFactory.authTokenGetter()}`}
 		}).then(results => {
 			resolve(results.data);
@@ -49,6 +60,7 @@ const getUpcomingCompetitionsByUser = () => {
 
 return {
 	getUpcomingCompetitionsByUser,
+	getPlannedCompetitionsByUser,
 	getSingleCompetition,
 	getAllCompetitions,
 	getTypes

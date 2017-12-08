@@ -48,7 +48,7 @@ module Api
 					end
 
 					def payment_type_params
-      					params.require(:payment_type).permit(:card_number, :title, :csc, :name_on_card)
+      					params.require(:payment_type).permit(:card_number, :title, :csc, :name_on_card, :user_id)
     				end
 
 		end

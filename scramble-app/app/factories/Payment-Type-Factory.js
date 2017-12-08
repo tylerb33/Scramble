@@ -21,6 +21,18 @@ app.factory('paymentTypeFactory', function ($q, $http, userFactory) {
 		});
 	};
 
-	return {getPaymentTypesByUser, removePaymentType};
+	const addPaymentType = (paymentObject) => {
+		console.log ("paymentObject in factory", paymentObject);
+		return $q((resolve, reject) => {
+			$http.post(`http://localhost:3000/api/v1/users/${userFactory.currentUserIdGetter()}/payment_types`, paymentObject, {
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+			})
+			.then( (data) => {
+				resolve(data);
+			});
+		});
+	};
+
+	return {getPaymentTypesByUser, removePaymentType, addPaymentType};
 
 });

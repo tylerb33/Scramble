@@ -4,10 +4,11 @@ module Api
 			before_action :find_competition, only: [:show, :destroy, :update]
 
 			# GET /competitions
-			# def user_competitions
-			# 	@competitions = Competition.where(user_id: params[:user_id])
-			# 	render json: @competitions
-			# end
+			def users_upcoming_competitions
+				@user = User.find(params[:user_id])
+				@competitions = @user.competitions
+				render json: @competitions
+			end
 
 			# GET /competitions
 			def index
@@ -16,7 +17,7 @@ module Api
 				else 
 					@competitions = Competition.all
 				end
-				
+
 				render json: @competitions
 			end
 			  # GET /competitions/1

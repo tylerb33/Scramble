@@ -50,19 +50,27 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 
 	$scope.showUpcomingCompetitionsByUser = () => {
 		competitionFactory.getUpcomingCompetitionsByUser().then(data => {
-			console.log("upcoming competitions made it to user controller", data);
+			console.log("planned competitions made it to user controller", data);
 			$scope.upcomingCompetitions = data;
+		});
+	};
+
+	$scope.showPlannedCompetitionsByUser = () => {
+		competitionFactory.getPlannedCompetitionsByUser().then(data => {
+			console.log ("upcoming competitions made it to user controller", data);
+			$scope.plannedCompetitions = data;
 		});
 	};
 
 	$scope.deletePaymentType = (paymentTypeId) => {
 		// console.log ("paymentTypeId", paymentTypeId);
-		paymentTypeFactory.removePaymentType(paymentTypeId).then(data => {
-			console.log ("deleted payment type", data);
+		paymentTypeFactory.removePaymentType(paymentTypeId).then(() => {
+			$scope.showPaymentByUser();
 		});
 	};
 
 
 	$scope.showPaymentByUser();
 	$scope.showUpcomingCompetitionsByUser();
+	$scope.showPlannedCompetitionsByUser();
 });

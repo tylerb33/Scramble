@@ -14,7 +14,7 @@ app.config(($routeProvider) => {
 	})
 	.when('/create', {
 		templateUrl: 'partials/create_competition_form.html',
-		controller: 'createCompetition'
+		controller: 'createCompetitionController'
 	})
 	.when('/details/:itemId', {
 		templateUrl: 'partials/competition_detail.html',
@@ -22,6 +22,14 @@ app.config(($routeProvider) => {
 	})
 	.when('/login', {
 		templateUrl: 'partials/login_form.html',
+		controller: 'UserController'
+	})
+	.when('/signup', {
+		templateUrl: 'partials/signup_form.html',
+		controller: 'UserController'
+	})
+	.when('/account', {
+		templateUrl: 'partials/user_details.html',
 		controller: 'UserController'
 	})
 	.otherwise('/');

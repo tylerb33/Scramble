@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_secure_password
+	
 	has_many :payment_types
 	
 	has_many :past_rounds

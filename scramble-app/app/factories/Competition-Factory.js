@@ -1,13 +1,11 @@
 "use strict";
 
-app.factory('competitionFactory', function ($q, $http) {
+app.factory('competitionFactory', function ($q, $http, userFactory) {
 
 const getAllCompetitions = () => {
-	let competitionsArray = [];
-
 	return $q((resolve, reject) => {
 		$http.get(`http://localhost:3000/api/v1/competitions`, {
-			headers: {'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMSwiZXhwIjoxNTEyNzAxMzc2fQ.c1MkZkKsiYTPCpTTNM5TfxilwJs0Gn_uCYqTHuBp18Y'}
+			headers: {'Authorization': `${userFactory.authTokenGetter()}`}
 		}).then(results => {
 			resolve(results.data);
 		});
@@ -16,7 +14,22 @@ const getAllCompetitions = () => {
 
 const getSingleCompetition = (id) => {
 	return $q((resolve, reject) => {
-		$http.get(`http://localhost:3000/api/v1/competitions/${id}`).then(results => {
+		$http.get(`http://localhost:3000/api/v1/competitions/${id}`, {
+			headers: {'Authorization': `${userFactory.authTokenGetter()}`,
+					  'contentType': "application/json; charset=utf-8",
+     				  'dataType': "json"
+					}
+		}).then(results => {
+			resolve(results.data);
+		});
+	});
+};
+
+const getTypes = () => {
+	return $q((resolve, reject) => {
+		$http.get(`http://localhost:3000/api/v1/competition_types`, {
+			headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+		}).then(results => {
 			resolve(results.data);
 		});
 	});
@@ -24,7 +37,8 @@ const getSingleCompetition = (id) => {
 
 return {
 	getAllCompetitions,
-	getSingleCompetition
+	getSingleCompetition,
+	getTypes
 };
 
 });

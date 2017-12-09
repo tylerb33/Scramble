@@ -36,5 +36,9 @@ app.config(($routeProvider) => {
 		templateUrl: 'partials/create_payment_type_form.html',
 		controller: 'paymentTypesController'
 	})
+	.when('/competitionmap', {
+		templateUrl: 'partials/display_competitions_map.html',
+		controller: 'displayCompetitions'
+	})
 	.otherwise('/');
 });

@@ -3,8 +3,6 @@
 app.factory('golfCourseFactory', function ($q, $http, userFactory) {
 
 	const getAllGolfCourses = () => {
-		let golfCoursesArray = [];
-
 		return $q((resolve, reject) => {
 			$http.get(`http://localhost:3000/api/v1/golf_courses`, {
 				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
@@ -14,7 +12,17 @@ app.factory('golfCourseFactory', function ($q, $http, userFactory) {
 		});
 	};
 
+	const getSingleGolfCourse = (golfCourseId) => {
+		return $q((resolve, reject) => {
+			$http.get(`http://localhost:3000/api/v1/golf_courses/${golfCourseId}`, {
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+			}).then(results => {
+				resolve(results.data);
+			});
+		});
+	};
 
-	return {getAllGolfCourses};
+
+	return {getAllGolfCourses, getSingleGolfCourse};
 
 });

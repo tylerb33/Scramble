@@ -60,7 +60,7 @@ module Api
 					end
 
 					def competition_params
-      					params.require(:competition).permit(:title, :description, :competition_type_id, :golf_course_id, :date, :time, :contact_email, :entry_fee)
+      					params.require(:competition).permit(:title, :description, :competition_type_id, :golf_course_id, :date, :time, :contact_email, :entry_fee, :user_id)
     				end
 
 		end

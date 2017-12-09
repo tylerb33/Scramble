@@ -8,32 +8,20 @@
         <input class="loginInput form-control form-control-lg" placeholder="Description" type="text" autofocus="true" ng-model="competition_details.description">
 
 		<br>
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Select a Golf Course
-			</button>
- 
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<div ng-repeat="course in golfCourses" ng-model="competition_details.golf_course_id">
-					<a class="dropdown-item" value={{course.id}} href="">{{course.title}}</a>
-				</div>
-			</div>
-		</div>
+		<select id="golfCourse" ng-model="competition_details.golf_course_id">
+			<option disabled selected value>Pick a Golf Course</option>
+			<option ng-repeat="course in golfCourses" value="{{course.id}}">{{course.title}}</option> 
+		</select>
 
 
-		<br>
-        <div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Competition Type
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<div ng-repeat="competitionType in competitionTypes">
-					<a class="dropdown-item" href="">{{competitionType.title}}</a>
-				</div>
-			</div>
-		</div>
+		<br><br>
+		<select id="competitionType" ng-model="competition_details.competition_type_id">
+			<option disabled selected value>Competition Type</option>
+			<option ng-repeat="competitionType in competitionTypes" value="{{competitionType.id}}">{{competitionType.title}}</option> 
+		</select>
+		
 
-        <br>
+        <br><br>
         <input class="loginInput form-control form-control-lg" placeholder="Date" type="date" autofocus="true" ng-model="competition_details.date">
 
         <br>

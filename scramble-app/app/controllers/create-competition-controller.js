@@ -1,6 +1,33 @@
 "use strict";
 
-app.controller('createCompetitionController', function($scope, competitionFactory, golfCourseFactory, $routeParams) {
+app.controller('createCompetitionController', function($scope, competitionFactory, golfCourseFactory, userFactory, $routeParams, $location) {
+
+
+	$scope.competition_details = {
+		user_id: `${userFactory.currentUserIdGetter()}`,
+		description: "",
+		competition_type_id: "",
+		golf_course_id: "",
+		title: "",
+		date: "",
+		time: "",
+		contact_email: "",
+		entry_fee: ""
+	};
+
+	$scope.submitCompetition = function() {
+		const finalCompetitionObj = {"competition": $scope.competition_details};
+		console.log ("finalPaymentObj in controller", $scope.competition_details);
+		const finalCompetitionObjString = JSON.stringify(finalCompetitionObj);
+		competitionFactory.addCompetition(finalCompetitionObjString)
+			.then((data) => {
+				$location.url("/competitions");
+				// console.log ("DATA FROM USER SUBMIT", data);			
+		});
+	};
+
+
+
 
 	const getCompetitionTypes = function() {
 		competitionFactory.getTypes().then(data => {

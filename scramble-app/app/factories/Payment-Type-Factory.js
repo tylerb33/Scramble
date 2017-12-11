@@ -33,6 +33,34 @@ app.factory('paymentTypeFactory', function ($q, $http, userFactory) {
 		});
 	};
 
-	return {getPaymentTypesByUser, removePaymentType, addPaymentType};
+	const getSinglePayment = (id) => {
+		return $q((resolve, reject) => {
+			$http.get(`http://localhost:3000/api/v1/users/${userFactory.currentUserIdGetter()}/payment_types/${id}`, {
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+			})
+			.then ( (data) => {
+				console.log ("get single payment data in factory", data);
+				resolve(data);
+			});
+		});
+	};
+
+	const submitUpdatedPayment = function(paymentId, editedPayment) {
+	    return $q((resolve, reject) => {
+	      let stringifyObject = JSON.stringify(editedPayment);
+	      $http
+	        .patch(`http://localhost:3000/api/v1/users/${userFactory.currentUserIdGetter()}/payment_types/${paymentId}`, stringifyObject, {
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+			})
+	        .then(data => {
+	          resolve(data);
+	        })
+	        .catch(error => {
+	          reject(error);
+	        });
+	    });
+  };
+
+	return {getPaymentTypesByUser, removePaymentType, addPaymentType, getSinglePayment, submitUpdatedPayment};
 
 });

@@ -44,6 +44,13 @@ app.controller('editCompetitionController', function($scope, $routeParams, golfC
 		});
 	};
 
+  
+  // $scope.deleteCompetition = function (id) {
+  //   competitionFactory.removeCompetition(id).then(data => {
+  //     console.log("data from competition delete", id);
+  //   });
+  // };
+
 	getCompetitionTypes();
 	getGolfCourses();
 

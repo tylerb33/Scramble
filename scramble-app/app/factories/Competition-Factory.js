@@ -82,11 +82,22 @@ app.factory('competitionFactory', function ($q, $http, userFactory) {
 	    });
   	};
 
+  	const removeCompetition = (id) => {
+		return $q((resolve, reject) => {
+			$http.delete(`http://localhost:3000/api/v1/users/${userFactory.currentUserIdGetter()}/competitions/${id}`, {
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+			}).then( (data) => {
+				resolve();
+			});
+		});
+	};
+
 	return {
 		getUpcomingCompetitionsByUser,
 		getPlannedCompetitionsByUser,
 		submitUpdatedCompetition,
 		getSingleCompetition,
+		removeCompetition,
 		getAllCompetitions,
 		addCompetition,
 		getTypes

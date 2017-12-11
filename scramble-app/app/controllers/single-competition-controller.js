@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('singleCompetitionController', function($scope, competitionFactory, golfCourseFactory, $routeParams) {
+app.controller('singleCompetitionController', function($scope, competitionFactory, golfCourseFactory, $routeParams, $location) {
 
 // let latitude = 45.444;
 // let longitude = -85.2233;
@@ -19,7 +19,7 @@ const initializeMap = function (latitude, longitude) {
 
 
 // The below showCompetition function is retrieving a single competition from the competition factory, then it is pulling out the latitude and longitude + calling the initializeMap function passing in lat and long in order to set the maps center.
-const showCompetition = function() {
+  const showCompetition = function() {
     competitionFactory.getSingleCompetition($routeParams.itemId).then(data => {
       // let golfCourseId = data.golf_course.id;
       let latitude = data.golf_course.latitude;
@@ -27,7 +27,14 @@ const showCompetition = function() {
       $scope.competition = data;
       initializeMap(latitude, longitude);
     });
-};
+  };
+
+   $scope.deleteCompetition = function (id) {
+    competitionFactory.removeCompetition(id)
+    .then((response) => {
+            $location.url("/competitions");
+          });
+  };
 
 showCompetition();
 

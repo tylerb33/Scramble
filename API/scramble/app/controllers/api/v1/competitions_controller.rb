@@ -20,6 +20,8 @@ module Api
 
 				render json: @competitions
 			end
+			
+			
 			  # GET /competitions/1
 			def show
 				render json: @competition

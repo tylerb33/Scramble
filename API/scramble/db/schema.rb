@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20171209144712) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "competition_user_joins", force: :cascade do |t|
+  create_table "competition_users", force: :cascade do |t|
     t.integer "competition_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["competition_id"], name: "index_competition_user_joins_on_competition_id"
-    t.index ["user_id"], name: "index_competition_user_joins_on_user_id"
+    t.index ["competition_id"], name: "index_competition_users_on_competition_id"
+    t.index ["user_id"], name: "index_competition_users_on_user_id"
   end
 
   create_table "competitions", force: :cascade do |t|
@@ -52,12 +52,10 @@ ActiveRecord::Schema.define(version: 20171209144712) do
     t.string "state"
     t.string "postal_code"
     t.string "website_link"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.index ["user_id"], name: "index_golf_courses_on_user_id"
   end
 
   create_table "past_rounds", force: :cascade do |t|

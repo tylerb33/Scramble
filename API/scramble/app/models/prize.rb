@@ -1,3 +1,3 @@
 class Prize < ApplicationRecord
-  belongs_to :competition, optional: true
+  belongs_to :competition
 end

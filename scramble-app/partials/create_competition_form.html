@@ -8,16 +8,18 @@
         <input class="loginInput form-control form-control-lg" placeholder="Description" type="text" autofocus="true" ng-model="competition_details.description">
 
 		<br>
+        Select a Golf Course:
 		<select id="golfCourse" ng-model="competition_details.golf_course_id">
-			<option disabled selected value>Pick a Golf Course</option>
-			<option ng-repeat="course in golfCourses" value="{{course.id}}">{{course.title}}</option> 
+			<!-- <option disabled value>Pick a Golf Course</option> -->
+			<option ng-repeat="course in golfCourses" ng-selected="competition_details.golf_course.id == course.id" value="{{course.id}}">{{course.title}}</option> 
 		</select>
 
 
 		<br><br>
+        Select a Competition Format:
 		<select id="competitionType" ng-model="competition_details.competition_type_id">
-			<option disabled selected value>Competition Type</option>
-			<option ng-repeat="competitionType in competitionTypes" value="{{competitionType.id}}">{{competitionType.title}}</option> 
+			<!-- <option disabled value>Competition Type</option> -->
+			<option ng-repeat="competitionType in competitionTypes" ng-selected="competition_details.competition_type.id == competitionType.id" value="{{competitionType.id}}">{{competitionType.title}}</option> 
 		</select>
 		
 

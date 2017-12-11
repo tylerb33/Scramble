@@ -19,6 +19,9 @@ app.controller('editCompetitionController', function($scope, $routeParams, golfC
   $scope.showSingleCompetition = () => {
     competitionFactory.getSingleCompetition($routeParams.itemId).then(data => {
       $scope.competition_details = data;
+      $scope.competition_details.date = new Date(data.date);
+      $scope.competition_details.time = new Date(data.time);
+      console.log ("$scope.competition_details", $scope.competition_details);
     });
   };
 

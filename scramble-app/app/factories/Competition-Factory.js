@@ -16,10 +16,7 @@ app.factory('competitionFactory', function ($q, $http, userFactory) {
 	const getSingleCompetition = (id) => {
 		return $q((resolve, reject) => {
 			$http.get(`http://localhost:3000/api/v1/competitions/${id}`, {
-				headers: {'Authorization': `${userFactory.authTokenGetter()}`,
-						  'contentType': "application/json; charset=utf-8",
-	     				  'dataType': "json"
-						}
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
 			}).then(results => {
 				resolve(results.data);
 			});
@@ -57,6 +54,7 @@ app.factory('competitionFactory', function ($q, $http, userFactory) {
 	};
 
 	const addCompetition = (competitionObject) => {
+		console.log ("TO CHECK OUT DATE AND TIME", competitionObject);
 		return $q((resolve, reject) => {
 			$http.post(`http://localhost:3000/api/v1/competitions`, competitionObject, {
 				headers: {'Authorization': `${userFactory.authTokenGetter()}`}

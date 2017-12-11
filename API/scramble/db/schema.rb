@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20171209144712) do
     t.integer "competition_type_id"
     t.integer "golf_course_id"
     t.integer "user_id"
-    t.datetime "date"
-    t.time "time"
+    t.string "date"
+    t.string "time"
     t.string "contact_email"
     t.integer "entry_fee"
     t.datetime "created_at", null: false

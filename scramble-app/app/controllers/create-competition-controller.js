@@ -16,6 +16,7 @@ app.controller('createCompetitionController', function($scope, competitionFactor
 	};
 
 	$scope.submitCompetition = function() {
+		console.log("competition date for editing", new Date($scope.competition_details.date));
 		const finalCompetitionObj = {"competition": $scope.competition_details};
 		console.log ("finalPaymentObj in controller", $scope.competition_details);
 		const finalCompetitionObjString = JSON.stringify(finalCompetitionObj);

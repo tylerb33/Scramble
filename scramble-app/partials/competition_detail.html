@@ -8,7 +8,12 @@
     <h4 class="card-title">{{competition.competition_type.title}}</h4>
     <p class="card-text">{{competition.date | date}}</p>
     <p class="card-text">{{competition.time}}</p>
-    <a ng-href="#!/details/{{competition.id}}" class="card-link">Sign Up</a>
+
+	<a href= "#!/details/{{competition.id}}"><button type="button" class="btn btn-success">Sign Up</button></a><br><br>
+
+	<a href= "#!/competition/{{competition.id}}"><button type="button" class="btn btn-warning btn-sm">Edit Event</button></a>
+	<button type="button" class="btn btn-danger btn-sm" ng-click="deleteCompetition(competition.id)">Delete Event</button>
+
   </div>
 </div>
 

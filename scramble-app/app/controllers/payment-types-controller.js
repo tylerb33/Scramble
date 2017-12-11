@@ -18,6 +18,7 @@ $scope.headline = "Add a Payment Type";
 		csc: ""
 	};
 
+
 	$scope.submitPaymentType = function() {
 		const finalPaymentObj = {"payment_type": $scope.newPaymentType};
 		console.log ("finalPaymentObj in controller", $scope.newPaymentType);

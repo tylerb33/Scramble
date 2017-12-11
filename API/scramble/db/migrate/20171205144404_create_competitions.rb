@@ -6,8 +6,8 @@ class CreateCompetitions < ActiveRecord::Migration[5.1]
       t.references :competition_type, foreign_key: true
       t.references :golf_course, foreign_key: true
       t.references :user, foreign_key: true
-      t.datetime :date
-      t.time :time
+      t.string :date
+      t.string :time
       t.string :contact_email
       t.integer :entry_fee
 

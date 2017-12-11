@@ -20,7 +20,7 @@ app.controller('displayCompetitions', function($scope, competitionFactory) {
 		console.log ("inside createMarkersForMap", data);
 	};
 
-	$scope.showAllCompetitions = () => {
+	const getAllCompetitions = () => {
 		competitionFactory.getAllCompetitions().then(data => {
 			$scope.arrayOfCompetitions = data;
 			createMarkersForMap(data);
@@ -28,7 +28,7 @@ app.controller('displayCompetitions', function($scope, competitionFactory) {
 		});
 	};
 
-	$scope.showAllCompetitions();
+	getAllCompetitions();
 
 	// This small timeout is allowing the allCompetitionsMap div to be loaded on the DOM so it can be recognized by the initializeMap function.
 	setTimeout(initializeMap, 50);

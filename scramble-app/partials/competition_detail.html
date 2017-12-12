@@ -9,7 +9,7 @@
     <p class="card-text">{{competition.date | date}}</p>
     <p class="card-text">{{competition.time}}</p>
 
-	<a href= "#!/details/{{competition.id}}"><button type="button" class="btn btn-success">Sign Up</button></a><br><br>
+	<a href= "#!/participant/signup/{{competition.id}}"><button type="button" class="btn btn-success">Sign Up</button></a><br><br>
 
 	<a href= "#!/competition/{{competition.id}}"><button type="button" class="btn btn-warning btn-sm">Edit Event</button></a>
 	<button type="button" class="btn btn-danger btn-sm" ng-click="deleteCompetition(competition.id)">Delete Event</button>

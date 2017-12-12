@@ -52,6 +52,9 @@ app.config(($routeProvider) => {
       templateUrl: 'partials/participation_registration_form.html',
       controller: 'participationRegistrationController'
     })
-
+    .when('/registration/confirmation', {
+      templateUrl: 'partials/registration_confirmation.html',
+      controller: ''
+    })
 	.otherwise('/');
 });

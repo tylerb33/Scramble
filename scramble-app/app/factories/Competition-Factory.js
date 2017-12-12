@@ -90,6 +90,16 @@ app.factory('competitionFactory', function ($q, $http, userFactory) {
 		});
 	};
 
+	const addRegistration = (registrationObj) => {
+		return $q((resolve, reject) => {
+			$http.post('http://localhost:3000/api/v1/competition_users', registrationObj, {
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+			}).then( (data) => {
+				resolve(data);
+			});
+		});
+	};
+
 	return {
 		getUpcomingCompetitionsByUser,
 		getPlannedCompetitionsByUser,
@@ -97,6 +107,7 @@ app.factory('competitionFactory', function ($q, $http, userFactory) {
 		getSingleCompetition,
 		removeCompetition,
 		getAllCompetitions,
+		addRegistration,
 		addCompetition,
 		getTypes
 	};

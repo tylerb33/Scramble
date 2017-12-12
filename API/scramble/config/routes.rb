@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   	namespace 'v1' do
   		resources :golf_courses
   		resources :competitions
+      resources :competition_users
   		resources :prizes
 
   		resources :users do

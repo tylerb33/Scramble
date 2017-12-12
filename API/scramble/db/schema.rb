@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171209144712) do
+ActiveRecord::Schema.define(version: 20171212041301) do
 
   create_table "competition_types", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20171209144712) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "payment_type_id"
+    t.string "team_name"
     t.index ["competition_id"], name: "index_competition_users_on_competition_id"
     t.index ["user_id"], name: "index_competition_users_on_user_id"
   end

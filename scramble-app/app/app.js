@@ -48,6 +48,10 @@ app.config(($routeProvider) => {
       templateUrl: 'partials/create_competition_form.html',
       controller: 'editCompetitionController'
     })
+    .when('/participant/signup/:itemId', {
+      templateUrl: 'partials/participation_registration_form.html',
+      controller: 'participationRegistrationController'
+    })
 
 	.otherwise('/');
 });

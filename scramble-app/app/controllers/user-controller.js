@@ -2,7 +2,7 @@
 app.controller("UserController", function($scope, $window, userFactory, $location, $timeout, paymentTypeFactory, competitionFactory) {
 
 
-	$scope.headline = "Log In";
+	// $scope.headline = "Log In";
 
 	$scope.account = {
 		first_name: "",

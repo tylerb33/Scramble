@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('singleCompetitionController', function($scope, competitionFactory, golfCourseFactory, $routeParams, $location) {
+app.controller('singleCompetitionController', function($scope, competitionFactory, golfCourseFactory, userFactory, $routeParams, $location) {
 
 // let latitude = 45.444;
 // let longitude = -85.2233;

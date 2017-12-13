@@ -1,34 +1,22 @@
-<h2>Register Your Team!</h2>
+<div class="container">	
+	<h2>Register Your Team!</h2>
 
+	<center>
+	    <div class="form-group">
 
+			<h4>Select a Payment Type:</h4>
+				<select id="paymentType" ng-model="registration.payment_type_id">
+					<option ng-repeat="paymentType in paymentTypes" ng-selected="registration.payment_type_id == paymentType.id" value="{{paymentType.id}}">{{paymentType.title}}</option> 
+				</select>
+			<br>
+			<a href="#!/new_payment"> Add Payment Type </a>
+			<br><br>
 
-<!-- <h3>Pick a payment type</h3>
+	        <input class="loginInput form-control form-control-lg" placeholder="Name of your team" type="text" autofocus="true" ng-model="registration.team_name">
+		</div>
 
-<div ng-repeat="paymentType in paymentTypes">
-	<div class="card">
-	  <div class="card-block">
-	    {{paymentType.title}} | {{paymentType.card_number}}
-	  </div>
-	</div>
+		<div class="buttons">
+	        <button ng-click="submitRegistration()" type="button" class="btn btn-outline-success btn-block">Finalize Registration</button>
+	    </div>
+	</center>
 </div>
- -->
-
-
-<center>
-    <div class="form-group">
-
-		<h4>Select a Payment Type:</h4>
-			<select id="paymentType" ng-model="registration.payment_type_id">
-				<option ng-repeat="paymentType in paymentTypes" ng-selected="registration.payment_type_id == paymentType.id" value="{{paymentType.id}}">{{paymentType.title}}</option> 
-			</select>
-		<br>
-		<a href="#!/new_payment"> Add Payment Type </a>
-		<br><br>
-
-        <input class="loginInput form-control form-control-lg" placeholder="Name of your team" type="text" autofocus="true" ng-model="registration.team_name">
-	</div>
-
-	<div class="buttons">
-        <button ng-click="submitRegistration()" type="button" class="btn btn-outline-success btn-block">Finalize Registration</button>
-    </div>
-</center>

@@ -1,10 +1,35 @@
 #mapid {
-  height: 180px; }
+  height: 230px;
+  margin-bottom: 2rem; }
 
 #allCompetitionsMap {
   height: 500px; }
 
-#mapid {
-  margin-bottom: 2rem; }
+.signInGreen {
+  background: linear-gradient(132deg, #80ff80, #004d00);
+  background-size: 400% 400%;
+  height: 800px; }
+
+#welcomeBox {
+  display: block;
+  margin: 0 auto;
+  padding-top: 200px;
+  text-align: center; }
+
+#welcomeText {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 80px; }
+
+.loginFormContainer {
+  display: block;
+  margin: 0 auto;
+  padding-top: 200px;
+  width: 40%; }
+
+.user-detail-headings {
+  font-size: 35px; }
+
+.card {
+  margin-bottom: 1rem; }
 
 /*# sourceMappingURL=main.css.map */

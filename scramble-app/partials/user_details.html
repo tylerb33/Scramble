@@ -1,32 +1,36 @@
-<h3>View your payment types</h3>
+<div class="container">
+	<span class="user-detail-headings">View your payment types |  <a ng-href="#!/new_payment"><i class="fa fa-plus" aria-hidden="true"></i></a></span><br>
 
-<div ng-repeat="paymentType in paymentTypes">
-	<div class="card">
-	  <div class="card-block">
-	    {{paymentType.title}} | {{paymentType.card_number}} | <a href="#!/account" ng-click="deletePaymentType(paymentType.id)">Delete</a> | <a href= "#!/paymentType/{{paymentType.id}}">Edit</a>
-	  </div>
+
+
+
+	<div ng-repeat="paymentType in paymentTypes">
+		<div class="card">
+		  <div class="card-block">
+		    {{paymentType.title}} | {{paymentType.card_number}} | <a href="#!/account" ng-click="deletePaymentType(paymentType.id)">Delete</a> | <a href= "#!/paymentType/{{paymentType.id}}">Edit</a>
+		  </div>
+		</div>
 	</div>
-</div>
-<a href="#!/new_payment" >Add Payment Type</a>
 
 
 
-<h3>Your Upcoming Competitions</h3>
-<div ng-repeat="competition in upcomingCompetitions">
-	<div class="card">
-	  <div class="card-block">
-	    {{competition.title}} | {{competition.date}} | {{competition.time}} | <a ng-href="#!/details/{{competition.id}}">Details</a>
-	  </div>
+	<span class="user-detail-headings">Your Upcoming Competitions</span><br>
+	<div ng-repeat="competition in upcomingCompetitions">
+		<div class="card">
+		  <div class="card-block">
+		    {{competition.title}} | {{competition.date | date}} | {{competition.golf_course.title}} | <a ng-href="#!/details/{{competition.id}}">Details</a>
+		  </div>
+		</div>
 	</div>
-</div>
 
 
-<h3>Competitions you've organized</h3>
+	<span class="user-detail-headings">Competitions you've organized</span><br>
 
-<div ng-repeat="competition in plannedCompetitions">
-	<div class="card">
-	  <div class="card-block">
-	    {{competition.title}} | {{competition.date}} | {{competition.time}} | <a ng-href="#!/details/{{competition.id}}">Details</a>
-	  </div>
+	<div ng-repeat="competition in plannedCompetitions">
+		<div class="card">
+		  <div class="card-block">
+		    {{competition.title}} | {{competition.date | date}} | {{competition.golf_course.title}} | <a ng-href="#!/details/{{competition.id}}">Details</a>
+		  </div>
+		</div>
 	</div>
 </div>

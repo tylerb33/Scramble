@@ -1,15 +1,21 @@
-<h1>{{headline}}</h1>
 
-<center>
-    <div class="form-group">
-        <input class="loginInput form-control form-control-lg" placeholder="Email" type="text" autofocus="true" ng-model="creds.email">
+<div class="signInGreen">
+	<div class="loginFormContainer">
+		<center>
+		<h1>Your Creds</h1>
+		    <div class="form-group">
+		        <input class="loginInput form-control form-control-lg" placeholder="Email" type="text" autofocus="true" ng-model="creds.email">
 
-        <br>
-        <input class="loginInput form-control form-control-lg" placeholder="Type Your Password" type="password" ng-model="creds.password">
-        <br>
-        <div class="buttons">
-        	<button ng-click="logIn()" type="button" class="btn btn-outline-success btn-block">LOGIN</button>
-    	</div>
+		        <br>
+		        <input class="loginInput form-control form-control-lg" placeholder="Password" type="password" ng-model="creds.password">
+		        <br>
+		        <div class="buttons">
+		        	<button ng-click="logIn()" type="button" class="btn btn-outline-success btn-block">LOGIN</button>
+		    	</div>
 
-    </div>
-</center>
+		    </div>
+		</center>
+	</div>
+</div>
+
+

@@ -1,20 +1,23 @@
-<h1>Here are competition details.</h1>
+<div class="container">  
+  <h1>All you need to know to go low...</h1>
 
-<div class="card">
-  <div class="card-block">
-    <h4 class="card-title">{{competition.title}}</h4>
-    <h4 class="card-title">{{competition.description}}</h4>
-    <h4 class="card-title">{{competition.golf_course.title}}</h4>
-    <h4 class="card-title">{{competition.competition_type.title}}</h4>
-    <p class="card-text">{{competition.date | date}}</p>
-    <p class="card-text">{{competition.time}}</p>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">{{competition.title}}</h4>
+      <h4 class="card-title">{{competition.description}}</h4>
+      <h4 class="card-title">{{competition.golf_course.title}}</h4>
+      <h4 class="card-title">{{competition.competition_type.title}}</h4>
+      <p class="card-text">{{competition.date | date}} at {{competition.time | date:"h:mma"}} </p>
 
-	<a href= "#!/participant/signup/{{competition.id}}"><button type="button" class="btn btn-success">Sign Up</button></a><br><br>
+  	<a href= "#!/participant/signup/{{competition.id}}"><button type="button" class="btn btn-success">Sign Up</button></a><br><br>
 
-	<a href= "#!/competition/{{competition.id}}"><button type="button" class="btn btn-warning btn-sm">Edit Event</button></a>
-	<button type="button" class="btn btn-danger btn-sm" ng-click="deleteCompetition(competition.id)">Delete Event</button>
+  
+    <a href= "#!/competition/{{competition.id}}"><button type="button" class="btn btn-warning btn-sm">Edit Event</button></a>
+    <button type="button" class="btn btn-danger btn-sm" ng-click="deleteCompetition(competition.id)">Delete Event</button>
 
+
+    </div>
   </div>
-</div>
 
-<div id="mapid"></div>
+  <div id="mapid"></div>
+</div>

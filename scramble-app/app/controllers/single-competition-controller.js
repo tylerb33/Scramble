@@ -7,7 +7,7 @@ app.controller('singleCompetitionController', function($scope, competitionFactor
 
 const initializeMap = function (latitude, longitude) {
 
-	var mymap = L.map('mapid').setView([latitude, longitude], 13);
+	var mymap = L.map('mapid').setView([latitude, longitude], 15);
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 	    maxZoom: 18,

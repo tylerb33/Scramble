@@ -4,7 +4,12 @@ app.factory('userFactory', function ($q, $http) {
 
 	let currentUserToken;
 	let currentUserId;
-	let loggedIn = false;
+	let loggedIn = true;
+
+    const isAuthenticated = function () {
+    	console.log ("logged in status in user factory", loggedIn);
+    	return loggedIn;
+	};
 
 	const authTokenGetter = () => {
 		return currentUserToken;
@@ -42,16 +47,27 @@ app.factory('userFactory', function ($q, $http) {
 		});
 	};
 
+	const logOut = () => {
+		return $q((resolve, reject) => {
+			loggedIn = false;
+			console.log ("User is logged out.");
+			currentUserToken = null;
+			currentUserId = null;
+			console.log ("Current User Info After Logout", "logged in?", loggedIn, "token?", currentUserToken, "user id?", currentUserId);	
+			resolve();
+			});
+	};
+
 	const authenticate = (emailPasswordObject) => {
 		return $q((resolve, reject) => {
 			$http.post(`http://localhost:3000/api/v1/authenticate`, emailPasswordObject)
 			// console.log("AUTHENTICATED DATA RETURN", data);
 			.then(data => {
+				loggedIn = true;
 				// console.log("AUTHENTICATED DATA RETURN", data);
 				currentUserToken = data.data.auth_token;
 				currentUserId = data.data.user_id;
-				loggedIn = true;
-				console.log ("token", currentUserToken, "user_id", currentUserId);
+				console.log ("token", currentUserToken, "user_id", currentUserId, "logged in?", isAuthenticated());
 				resolve(data);
 			// }, (error) => {
 			// 	let errorCode = error.code;
@@ -61,5 +77,5 @@ app.factory('userFactory', function ($q, $http) {
 		});
 	};
 
-	return {getAllUsers, addUser, authenticate, authTokenGetter, currentUserIdGetter};
+	return {getAllUsers, addUser, logOut, authenticate, authTokenGetter, currentUserIdGetter, isAuthenticated};
 });

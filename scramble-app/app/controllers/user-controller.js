@@ -1,5 +1,6 @@
 "use strict";
-app.controller("UserController", function($scope, $window, userFactory, $location, paymentTypeFactory, competitionFactory) {
+app.controller("UserController", function($scope, $window, userFactory, $location, $timeout, paymentTypeFactory, competitionFactory) {
+
 
 	$scope.headline = "Log In";
 
@@ -25,7 +26,7 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 		const finalAccountObjString = JSON.stringify(finalAccountObj);
 		userFactory.addUser(finalAccountObjString)
 			.then((data) => {
-				$location.url("/competitions");
+				$location.url("/competitionmap");
 				// console.log ("DATA FROM USER SUBMIT", data);			
 		});
 	};
@@ -34,10 +35,12 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 		// console.log ("$scope.creds", $scope.creds);
 		userFactory.authenticate($scope.creds)
 			.then((data) => {
-				$location.url("/competitions");
-				// console.log ("DATA BACK TO CONTROLLER", data);
+				// $scope.isLoggedIn = true;
+				$location.url("/competitionmap");
+				console.log ("value of $scope.isLoggedIn in user controller", $scope.isLoggedIn);
 			});
 	};
+
 
 	// *** All below are used to populate the user account detail page  *** //
 

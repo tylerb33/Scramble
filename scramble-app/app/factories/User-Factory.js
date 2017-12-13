@@ -6,7 +6,7 @@ app.factory('userFactory', function ($q, $http) {
 	let currentUserId;
 	let loggedIn = false;
 
-    const isAuthenticated = function () {
+    const isAuthenticated = () => {
     	console.log ("logged in status in user factory", loggedIn);
     	return loggedIn;
 	};
@@ -16,7 +16,7 @@ app.factory('userFactory', function ($q, $http) {
 	};
 
 	const currentUserIdGetter = () => {
-		return parseInt(currentUserId);
+		return currentUserId;
 	};
 
 	const getAllUsers = () => {
@@ -35,6 +35,7 @@ app.factory('userFactory', function ($q, $http) {
 			console.log ("userObject", userObject);
 			$http.post(`http://localhost:3000/api/v1/users`, userObject)
 			.then( (data) => {
+				loggedIn = true;
 				currentUserId = data.data.id;
 				console.log ("currentUserId", currentUserId);
 				resolve(data);

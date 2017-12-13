@@ -24,6 +24,7 @@ const initializeMap = function (latitude, longitude) {
       // let golfCourseId = data.golf_course.id;
       let latitude = data.golf_course.latitude;
       let longitude = data.golf_course.longitude;
+      console.log ("WHAT HERE", data);
       $scope.competition = data;
       initializeMap(latitude, longitude);
     });
@@ -35,6 +36,10 @@ const initializeMap = function (latitude, longitude) {
             $location.url("/competitions");
           });
   };
+
+  $scope.currentUserId = userFactory.currentUserIdGetter();
+
+  console.log ("just to be sure, this is the current user id", userFactory.currentUserIdGetter());
 
 showCompetition();
 

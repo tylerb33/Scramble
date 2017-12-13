@@ -16,7 +16,7 @@ app.factory('userFactory', function ($q, $http) {
 	};
 
 	const currentUserIdGetter = () => {
-		return parseInt(currentUserId);
+		return currentUserId;
 	};
 
 	const getAllUsers = () => {

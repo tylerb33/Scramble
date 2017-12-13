@@ -22,7 +22,7 @@ app.controller('displayCompetitionsMap', function($scope, competitionFactory, us
 		let markerLongitude = competition.golf_course.longitude;
 		
 		L.marker([markerLatitude, markerLongitude]).addTo(mymap)
-		     .bindPopup(`${competition.title} <br> ${competition.golf_course.title} <br> <a href="#!/details/${competition.id}" class="card-link">Details</a>`);
+		     .bindPopup(`<strong><a href="#!/details/${competition.id}" class="card-link">${competition.title}</a></strong> <br>${competition.golf_course.title}`);
 		});
 	};
 

@@ -6,7 +6,7 @@ app.factory('userFactory', function ($q, $http) {
 	let currentUserId;
 	let loggedIn = false;
 
-    const isAuthenticated = function () {
+    const isAuthenticated = () => {
     	console.log ("logged in status in user factory", loggedIn);
     	return loggedIn;
 	};

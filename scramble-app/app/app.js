@@ -3,6 +3,9 @@
 const app = angular.module("ScrambleApp", ['ngRoute']);
 
 //This checks to see if the user is logged in, isAuth sets a true of false variable that will be used to check if the route is okay. 
+// let isAuth = (userFactory) => {
+// 	console.log ("value of isAuth function", userFactory.isAuthenticated());
+// 	return userFactory.isAuthenticated();
 let isAuth = (userFactory) => {
 	console.log ("value of isAuth function", userFactory.isAuthenticated());
 	return userFactory.isAuthenticated();

@@ -35,6 +35,7 @@ app.factory('userFactory', function ($q, $http) {
 			console.log ("userObject", userObject);
 			$http.post(`http://localhost:3000/api/v1/users`, userObject)
 			.then( (data) => {
+				loggedIn = true;
 				currentUserId = data.data.id;
 				console.log ("currentUserId", currentUserId);
 				resolve(data);

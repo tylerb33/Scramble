@@ -2,11 +2,15 @@
 
 app.controller('navbarController', function($scope, $routeParams, userFactory, $window, $location, $route) {
 
- $scope.isLoggedIn = true;
+ 
+	$scope.isLoggedIn = function () {
+		return userFactory.isAuthenticated();
+	};
 
- function everyTime() {
- 	console.log ("every time it loads");
- }
+ 	$scope.logOut = function() {
+		userFactory.logOut();
+		// $location.url("/");
+	};
 
  
 });

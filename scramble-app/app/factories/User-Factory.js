@@ -4,7 +4,7 @@ app.factory('userFactory', function ($q, $http) {
 
 	let currentUserToken;
 	let currentUserId;
-	let loggedIn = true;
+	let loggedIn = false;
 
     const isAuthenticated = function () {
     	console.log ("logged in status in user factory", loggedIn);
@@ -48,14 +48,11 @@ app.factory('userFactory', function ($q, $http) {
 	};
 
 	const logOut = () => {
-		return $q((resolve, reject) => {
-			loggedIn = false;
-			console.log ("User is logged out.");
-			currentUserToken = null;
-			currentUserId = null;
-			console.log ("Current User Info After Logout", "logged in?", loggedIn, "token?", currentUserToken, "user id?", currentUserId);	
-			resolve();
-			});
+		loggedIn = false;
+		console.log ("User is logged out.");
+		currentUserToken = null;
+		currentUserId = null;
+		console.log ("Current User Info After Logout", "logged in?", loggedIn, "token?", currentUserToken, "user id?", currentUserId);	
 	};
 
 	const authenticate = (emailPasswordObject) => {

@@ -35,19 +35,12 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 		// console.log ("$scope.creds", $scope.creds);
 		userFactory.authenticate($scope.creds)
 			.then((data) => {
-				$scope.isLoggedIn = true;
+				// $scope.isLoggedIn = true;
 				$location.url("/competitionmap");
 				console.log ("value of $scope.isLoggedIn in user controller", $scope.isLoggedIn);
 			});
 	};
 
-	$scope.logOut = function() {
-		userFactory.logOut()
-			.then((data) => {
-				$scope.isLoggedIn = false;
-				$location.url("/");
-			});
-	};
 
 	// *** All below are used to populate the user account detail page  *** //
 

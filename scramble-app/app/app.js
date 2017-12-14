@@ -13,11 +13,7 @@ app.config(($routeProvider) => {
 	$routeProvider
 	.when('/', {
 		templateUrl: 'partials/landingpage.html',
-		controller: ''
-	})
-	.when('/login', {
-		templateUrl: 'partials/login_form.html',
-		controller: 'UserController',
+		controller: 'UserController'
 	})
 	.when('/competitions', {
 		templateUrl: 'partials/display_competitions.html',

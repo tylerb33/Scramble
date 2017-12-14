@@ -30,6 +30,23 @@ const initializeMap = function (latitude, longitude) {
     });
   };
 
+
+  const getUserAverageScoresOfCompetition = function() {
+    let sumOfScores = 0;
+    $scope.countOfScores = 0;
+
+    competitionFactory.getUserAverageScoresOfCompetition($routeParams.itemId)
+      .then((data) => {
+        data.forEach(function (single_score) {
+          sumOfScores += single_score.team_average_score;
+          $scope.countOfScores++;
+          $scope.averageOfScores = sumOfScores/$scope.countOfScores;
+        });
+    });
+  };
+
+
+
    $scope.deleteCompetition = function (id) {
     competitionFactory.removeCompetition(id)
     .then((response) => {
@@ -39,8 +56,8 @@ const initializeMap = function (latitude, longitude) {
 
   $scope.currentUserId = userFactory.currentUserIdGetter();
 
-  console.log ("just to be sure, this is the current user id", userFactory.currentUserIdGetter());
 
 showCompetition();
+getUserAverageScoresOfCompetition();
 
 });

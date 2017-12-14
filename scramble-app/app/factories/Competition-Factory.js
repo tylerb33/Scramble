@@ -23,6 +23,18 @@ app.factory('competitionFactory', function ($q, $http, userFactory) {
 		});
 	};
 
+	const getUserAverageScoresOfCompetition = (id) => {
+		console.log ("id from factorrrrrrry", id);
+		return $q((resolve, reject) => {
+			$http.get(`http://localhost:3000/api/v1/average-score-competiton/${id}`, {
+				headers: {'Authorization': `${userFactory.authTokenGetter()}`}
+			}).then(results => {
+				resolve(results.data);
+			});
+		});
+	};
+	
+
 	const getTypes = () => {
 		return $q((resolve, reject) => {
 			$http.get(`http://localhost:3000/api/v1/competition_types`, {
@@ -101,6 +113,7 @@ app.factory('competitionFactory', function ($q, $http, userFactory) {
 	};
 
 	return {
+		getUserAverageScoresOfCompetition,
 		getUpcomingCompetitionsByUser,
 		getPlannedCompetitionsByUser,
 		submitUpdatedCompetition,

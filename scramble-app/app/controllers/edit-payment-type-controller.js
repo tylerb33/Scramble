@@ -2,6 +2,7 @@
 
 app.controller('editPaymentTypeController', function($scope, $routeParams, paymentTypeFactory, $window, $location, $route) {
 
+  $scope.headline = "Edit Payment Type";
   // $scope.newCaseTitle = 'Case Details';
   // $scope.submitButtonText = 'Submit Edited Case';
 

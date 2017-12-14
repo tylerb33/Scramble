@@ -1,7 +1,7 @@
 <div class="container">  
   <h1>All you need to know to go low...</h1>
 
-  <div class="card">
+  <div class="card d-flex flex-row justify-content-around p-3">
     <div class="card-block">
       <h4 class="card-title">{{competition.title}}</h4>
       <h4 class="card-title">{{competition.description}}</h4>
@@ -16,6 +16,16 @@
       <button type="button" class="btn btn-danger btn-sm" ng-click="deleteCompetition(competition.id)">Delete Event</button>
     </div>
 
+    </div>
+    <div ng-hide="averageOfScores">
+      <h4>No golfers have signed up for this yet, call your friends.</h4>
+    </div>
+    <div ng-show="averageOfScores">
+      <h4>{{countOfScores}} entrants</h4>
+
+      <h4>Average Score of Entrants: <strong>{{averageOfScores}}</strong></h4>
+      <h5>Too high? Too low?</h5>
+      <h5><a class="" href="#!/competitionmap">Find Another Competition</a></h5>
     </div>
   </div>
 

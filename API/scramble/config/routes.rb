@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   		post 'authenticate', to: 'authentication#authenticate'
       get 'custom/:user_id/competitions', to: 'competitions#users_upcoming_competitions'
+      get 'average-score-competiton/:competition_id', to: 'competition_users#getScoresForAverage'
 
     end
   end

@@ -3,6 +3,12 @@ module Api
 		class CompetitionUsersController < ApplicationController
 			before_action :find_competition_user, only: [:show, :destroy, :update]
 
+			# GET /average-score-competiton/1
+			def getScoresForAverage
+				@competition_scores = CompetitionUser.where(competition_id: params[:competition_id])
+				render json: @competition_scores
+			end
+
 			# GET /competition_users
 			def index
 				@competition_users = CompetitionUser.all
@@ -49,7 +55,7 @@ module Api
 					end
 
 					def competition_user_params
-      					params.require(:competition_user).permit(:competition_id, :user_id, :team_name, :payment_type_id)
+      					params.require(:competition_user).permit(:competition_id, :user_id, :team_name, :payment_type_id, :team_average_score)
     				end
 
 		end

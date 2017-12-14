@@ -8,6 +8,7 @@ $scope.registration = {
     user_id: `${userFactory.currentUserIdGetter()}`,
     team_name: "",
     payment_type_id: "",
+    team_average_score: "",
     competition_id: $routeParams.itemId
   };
 

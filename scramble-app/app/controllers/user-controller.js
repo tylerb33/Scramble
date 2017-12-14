@@ -53,14 +53,14 @@ app.controller("UserController", function($scope, $window, userFactory, $locatio
 
 	$scope.showUpcomingCompetitionsByUser = () => {
 		competitionFactory.getUpcomingCompetitionsByUser().then(data => {
-			console.log("planned competitions made it to user controller", data);
+			console.log("upcoming competitions made it to user controller", data);
 			$scope.upcomingCompetitions = data;
 		});
 	};
 
 	$scope.showPlannedCompetitionsByUser = () => {
 		competitionFactory.getPlannedCompetitionsByUser().then(data => {
-			console.log ("upcoming competitions made it to user controller", data);
+			console.log ("planned competitions made it to user controller", data);
 			$scope.plannedCompetitions = data;
 		});
 	};

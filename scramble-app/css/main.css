@@ -44,11 +44,13 @@
   font-size: 35px; }
 
 .card {
-  margin-bottom: 1rem; }
+  margin-bottom: 5px;
+  margin-top: 5px; }
 
 .card-block {
-  width: 50%;
-  padding-top: 0px; }
+  width: 75%;
+  padding-top: 5px;
+  padding-bottom: 5px; }
 
 #backgroundimg {
   background-image: url("../images/golf_course_lg.jpeg");

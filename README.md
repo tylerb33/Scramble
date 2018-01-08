@@ -33,18 +33,34 @@ There are a few prerequisites for getting this running, which will be installed 
 
 Follow these steps to get up and running with Scramble. If you are just wanting to use the API, [click here](http://www.github.com/tylerb33).
 
-Step 1 - 
+Step 1 - Open your terminal. Run the below commands in the order they appear. These will get the API running on your local server:
 
 ```
-Give the example
+git clone https://github.com/tylerb33/Scramble.git
+cd Scramble
+cd API
+cd scramble
+rails db:migrate
+rails db:seed
+../
+rails server
 ```
+NOTE: this will populate the app with seed data, if you'd like to skip having this initial data in your instance of the app then just remove ```rails db:seed``` where you see it in the above.
 
-Step 2 -
+Step 2 - Without closing this tab, open a new tab within your Terminal.
+
+Step 2 - Go back to the highest level of the cloned repository (into the Scramble directory), then run the below commands. These will get the client side of the app running:
 
 ```
-until finished
+cd scramble-app
+cd lib
+npm install
+../
+hs -o
 ```
+Step 3 - In your browser, navigate to the URL returned from running the ```hs -o``` command. Usually, it is: localhost:8080.
 
+Step 4 - On the initial use of this app you'll need to create a user. Just click Register on the initial page to do so!
 
 ## Built With
 

@@ -76,17 +76,6 @@ GolfCourse.create({
 })
 
 GolfCourse.create({
-	title: "Huntingburg Country Club",
-	street_address: "739 W 3rd St.",
-	city: "Huntingburg",
-	state: "Indiana",
-	postal_code: "47542",
-	website_link: "https://www.golfnow.com/courses/1030282-huntingburg-country-club-details",
-	latitude: 38.2946272,
-	longitude: -86.9749989
-})
-
-GolfCourse.create({
 	title: "Vinny Links Golf Course",
 	street_address: "2009 Sevier St.",
 	city: "Nashville",

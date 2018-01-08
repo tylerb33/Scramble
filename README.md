@@ -42,7 +42,6 @@ cd API
 cd scramble
 rails db:migrate
 rails db:seed
-../
 rails server
 ```
 ***NOTE***: this will populate the app with seed data, if you'd like to skip having this initial data in your instance of the app then just remove ```rails db:seed``` where you see it in the above.

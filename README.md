@@ -45,11 +45,11 @@ rails db:seed
 ../
 rails server
 ```
-NOTE: this will populate the app with seed data, if you'd like to skip having this initial data in your instance of the app then just remove ```rails db:seed``` where you see it in the above.
+***NOTE***: this will populate the app with seed data, if you'd like to skip having this initial data in your instance of the app then just remove ```rails db:seed``` where you see it in the above.
 
 Step 2 - Without closing this tab, open a new tab within your Terminal.
 
-Step 2 - Go back to the highest level of the cloned repository (into the Scramble directory), then run the below commands. These will get the client side of the app running:
+Step 3 - Go back to the highest level of the cloned repository (into the Scramble directory), then run the below commands. These will get the client side of the app running:
 
 ```
 cd scramble-app
@@ -58,9 +58,9 @@ npm install
 ../
 hs -o
 ```
-Step 3 - In your browser, navigate to the URL returned from running the ```hs -o``` command. Usually, it is: localhost:8080.
+Step 4 - In your browser, navigate to the URL returned from running the ```hs -o``` command. Usually, it is: ```localhost:8080```.
 
-Step 4 - On the initial use of this app you'll need to create a user. Just click Register on the initial page to do so!
+Step 5 - On the initial use of this app you'll need to create a user. Just click Register on the initial page to do so!
 
 ## Built With
 

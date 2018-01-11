@@ -31,7 +31,7 @@ There are a few prerequisites for getting this running, which will be installed 
 
 ### Installing
 
-Follow these steps to get up and running with Scramble. If you are just wanting to use the API, [click here](http://www.github.com/tylerb33).
+Follow these steps to get up and running with Scramble.
 
 Step 1 - Open your terminal. Run the below commands in the order they appear. These will get the API running on your local server:
 
